@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <h1>Portfolio Aca</h1>
         <div id="clock">00:00:00</div>
@@ -38,15 +37,20 @@
             <label>Upload File:</label>
             <input type="file" id="fileUpload">
             <ul id="fileList"></ul>
-            <br>
             <label>Pilih Tanggal:</label>
             <input type="date" id="calendarDate">
             <p id="selectedDate">Belum memilih tanggal</p>
         </section>
+
+        <section id="notes">
+            <h2>Catatan Harian</h2>
+            <input type="text" id="noteInput" placeholder="Tulis catatan...">
+            <button id="addNoteBtn">Tambah</button>
+            <ul id="noteList"></ul>
+        </section>
     </main>
 
     <button id="backToTop">↑ Atas</button>
-
     <script src="script.js"></script>
 </body>
 </html>
