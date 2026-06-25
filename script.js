@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. JAM
-    const clock = document.getElementById('clock');
     setInterval(() => {
-        clock.textContent = new Date().toLocaleTimeString('id-ID', { hour12: false });
+        document.getElementById('clock').textContent = new Date().toLocaleTimeString('id-ID', { hour12: false });
     }, 1000);
 
     // 2. DARK MODE
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alert("Anda telah logout!");
     });
 
-    // Check login state
     if(localStorage.getItem('loggedInUser')) {
         status.textContent = "Selamat Datang, " + localStorage.getItem('loggedInUser');
     }
