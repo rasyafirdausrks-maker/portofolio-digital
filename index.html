@@ -2,15 +2,30 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Aca</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
         <h1>Portfolio Aca</h1>
         <div id="clock">00:00:00</div>
         <button id="darkModeBtn">🌙 Dark Mode</button>
     </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard Profil</h2>
+            <img id="profilePic" src="https://via.placeholder.com/150" alt="Foto Profil" style="width:150px; border-radius:50%;">
+            <br>
+            <input type="file" id="profileUpload" accept="image/*">
+            <br><br>
+            <input type="text" id="nameInput" placeholder="Masukkan nama baru">
+            <button id="saveNameBtn">Simpan Nama</button>
+            <p id="profileName">Pengguna</p>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
