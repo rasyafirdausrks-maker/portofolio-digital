@@ -1,22 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Fitur Dasar
+    // 1. Jam
     setInterval(() => document.getElementById('clock').textContent = new Date().toLocaleTimeString('id-ID', { hour12: false }), 1000);
+    
+    // 2. Dark Mode
     document.getElementById('darkModeBtn').addEventListener('click', () => document.body.classList.toggle('dark-mode'));
 
-    // Auth
-    const uInput = document.getElementById('usernameInput');
-    const status = document.getElementById('loginStatus');
-    document.getElementById('registerBtn').addEventListener('click', () => { localStorage.setItem('regUser', uInput.value); alert("Akun terdaftar!"); });
+    // 3. Sapaan Berdasarkan Waktu
+    const hour = new Date().getHours();
+    const greeting = document.getElementById('greeting');
+    if (hour < 12) greeting.textContent = "Selamat Pagi! Selamat datang di Portfolio Aca.";
+    else if (hour < 18) greeting.textContent = "Selamat Siang! Mari kita lihat karya Aca.";
+    else greeting.textContent = "Selamat Malam! Terima kasih sudah mampir.";
+
+    // 4. Auth
+    document.getElementById('registerBtn').addEventListener('click', () => { localStorage.setItem('regUser', document.getElementById('usernameInput').value); alert("Akun terdaftar!"); });
     document.getElementById('loginBtn').addEventListener('click', () => {
-        if(uInput.value === localStorage.getItem('regUser')) status.textContent = "Selamat Datang, " + uInput.value;
+        if(document.getElementById('usernameInput').value === localStorage.getItem('regUser')) document.getElementById('loginStatus').textContent = "Selamat Datang, " + document.getElementById('usernameInput').value;
         else alert("Username salah!");
     });
-    document.getElementById('logoutBtn').addEventListener('click', () => status.textContent = "Belum Login");
+    document.getElementById('logoutBtn').addEventListener('click', () => document.getElementById('loginStatus').textContent = "Belum Login");
 
-    // Profil
+    // 5. Profil
     document.getElementById('saveNameBtn').addEventListener('click', () => { document.getElementById('profileName').textContent = document.getElementById('nameInput').value; });
 
-    // Tools, Notes & Contact
+    // 6. Tools, Notes & Contact
     document.getElementById('fileUpload').addEventListener('change', (e) => { const li = document.createElement('li'); li.textContent = e.target.files[0].name; document.getElementById('fileList').appendChild(li); });
     document.getElementById('calendarDate').addEventListener('change', (e) => { document.getElementById('selectedDate').textContent = "Jadwal: " + e.target.value; });
     document.getElementById('addNoteBtn').addEventListener('click', () => {
@@ -29,6 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('contactForm').reset();
     });
 
-    // Back to Top
+    // 7. Back to Top
     document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
 });
