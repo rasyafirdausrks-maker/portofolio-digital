@@ -2,7 +2,7 @@
 body { 
     transition: 0.3s; 
     padding: 20px; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-family: sans-serif; 
     background: #f5f5f5; 
     color: #333; 
 }
@@ -23,7 +23,7 @@ header {
     margin-bottom: 20px;
 }
 
-/* Layout Berjajar */
+/* KUNCI UTAMA: Mengatur kotak berjajar ke samping */
 main { 
     display: flex; 
     flex-wrap: wrap; 
@@ -34,7 +34,7 @@ section {
     background: white; 
     padding: 20px; 
     flex: 1; 
-    min-width: 300px; 
+    min-width: 300px; /* Lebar minimal agar tidak terlalu kecil di HP */
     border-radius: 10px; 
     border: 1px solid #ccc; 
 }
@@ -45,9 +45,8 @@ body.dark-mode section {
     color: white; 
 }
 
-/* Elemen Input & Tombol */
-button { cursor: pointer; padding: 8px 12px; margin-top: 5px; }
-input, textarea { display: block; width: 90%; margin: 10px 0; padding: 8px; }
+/* Elemen Tambahan */
 #clock { font-size: 24px; font-weight: bold; margin: 10px 0; display: block; }
+button { cursor: pointer; padding: 8px 12px; }
 #profilePic { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; display: block; margin-bottom: 10px; }
-#backToTop { position: fixed; bottom: 20px; right: 20px; padding: 10px; z-index: 1000; }
+#backToTop { position: fixed; bottom: 20px; right: 20px; padding: 10px; }
