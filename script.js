@@ -1,31 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Fitur Jam
-    const clock = document.getElementById('clock');
+    // 1. Jam
     setInterval(() => {
-        clock.textContent = new Date().toLocaleTimeString('id-ID', { hour12: false });
+        document.getElementById('clock').textContent = new Date().toLocaleTimeString('id-ID', { hour12: false });
     }, 1000);
 
-    // 2. Fitur Dark Mode
-    const btn = document.getElementById('darkModeBtn');
-    btn.addEventListener('click', () => {
+    // 2. Dark Mode
+    document.getElementById('darkModeBtn').addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
     });
 
-    // 3. Fitur Profil (Simpan Nama)
+    // 3. Login & Register
+    const uInput = document.getElementById('usernameInput');
+    const status = document.getElementById('loginStatus');
+    
+    document.getElementById('registerBtn').addEventListener('click', () => {
+        localStorage.setItem('registeredUser', uInput.value);
+        alert("Akun didaftarkan!");
+    });
+
+    document.getElementById('loginBtn').addEventListener('click', () => {
+        if(uInput.value === localStorage.getItem('registeredUser')) {
+            status.textContent = "Selamat Datang, " + uInput.value;
+        } else {
+            alert("Username tidak terdaftar!");
+        }
+    });
+
+    // 4. Profil (Nama & Foto)
     const nameInput = document.getElementById('nameInput');
     const profileName = document.getElementById('profileName');
-    const saveBtn = document.getElementById('saveNameBtn');
+    const profilePic = document.getElementById('profilePic');
+    const profileUpload = document.getElementById('profileUpload');
 
+    // Load data
     if(localStorage.getItem('savedName')) profileName.textContent = localStorage.getItem('savedName');
+    if(localStorage.getItem('savedPhoto')) profilePic.src = localStorage.getItem('savedPhoto');
 
-    saveBtn.addEventListener('click', () => {
+    document.getElementById('saveNameBtn').addEventListener('click', () => {
         localStorage.setItem('savedName', nameInput.value);
         profileName.textContent = nameInput.value;
     });
-
-    // 4. Fitur Foto Profil
-    const profileUpload = document.getElementById('profileUpload');
-    const profilePic = document.getElementById('profilePic');
 
     profileUpload.addEventListener('change', (e) => {
         const reader = new FileReader();
@@ -35,6 +49,4 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         reader.readAsDataURL(e.target.files[0]);
     });
-
-    if(localStorage.getItem('savedPhoto')) profilePic.src = localStorage.getItem('savedPhoto');
 });
