@@ -1,32 +1,57 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Jam
-    setInterval(() => document.getElementById('clock').textContent = new Date().toLocaleTimeString('id-ID', { hour12: false }), 1000);
-    // Dark Mode
-    document.getElementById('darkModeBtn').addEventListener('click', () => document.body.classList.toggle('dark-mode'));
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Aca</title>
+    <!-- Menambahkan versi ?v=99 agar browser terpaksa memuat ulang -->
+    <link rel="stylesheet" href="style.css?v=99">
+</head>
+<body>
+    <header>
+        <h1>Portfolio Aca</h1>
+        <div id="clock">00:00:00</div>
+        <button id="darkModeBtn">🌙 Dark Mode</button>
+    </header>
 
-    // Login/Register
-    document.getElementById('registerBtn').addEventListener('click', () => { localStorage.setItem('regUser', document.getElementById('usernameInput').value); alert("Akun terdaftar!"); });
-    document.getElementById('loginBtn').addEventListener('click', () => {
-        if(document.getElementById('usernameInput').value === localStorage.getItem('regUser')) {
-            document.getElementById('loginStatus').textContent = "Selamat Datang, " + localStorage.getItem('regUser');
-        } else alert("Username salah!");
-    });
-    document.getElementById('logoutBtn').addEventListener('click', () => { document.getElementById('loginStatus').textContent = "Belum Login"; });
+    <main>
+        <section id="auth">
+            <h2>Login / Register</h2>
+            <input type="text" id="usernameInput" placeholder="Username">
+            <button id="registerBtn">Register</button>
+            <button id="loginBtn">Login</button>
+            <button id="logoutBtn">Logout</button>
+            <p id="loginStatus">Belum Login</p>
+        </section>
 
-    // Profil
-    document.getElementById('saveNameBtn').addEventListener('click', () => { document.getElementById('profileName').textContent = document.getElementById('nameInput').value; });
+        <section id="dashboard">
+            <h2>Dashboard Profil</h2>
+            <img id="profilePic" src="https://via.placeholder.com/150" alt="Profil">
+            <input type="file" id="profileUpload" accept="image/*">
+            <input type="text" id="nameInput" placeholder="Nama baru">
+            <button id="saveNameBtn">Simpan Nama</button>
+            <p id="profileName">Pengguna</p>
+        </section>
 
-    // Fitur Tambahan & Catatan
-    document.getElementById('fileUpload').addEventListener('change', (e) => {
-        const li = document.createElement('li'); li.textContent = e.target.files[0].name;
-        document.getElementById('fileList').appendChild(li);
-    });
-    document.getElementById('calendarDate').addEventListener('change', (e) => { document.getElementById('selectedDate').textContent = "Jadwal: " + e.target.value; });
-    document.getElementById('addNoteBtn').addEventListener('click', () => {
-        const ni = document.getElementById('noteInput');
-        if(ni.value) { const li = document.createElement('li'); li.textContent = ni.value; document.getElementById('noteList').appendChild(li); ni.value = ""; }
-    });
+        <section id="tools">
+            <h2>Fitur Tambahan</h2>
+            <label>Upload File:</label>
+            <input type="file" id="fileUpload">
+            <ul id="fileList"></ul>
+            <label>Pilih Tanggal:</label>
+            <input type="date" id="calendarDate">
+            <p id="selectedDate">Belum memilih tanggal</p>
+        </section>
 
-    // Back to Top
-    document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
-});
+        <section id="notes">
+            <h2>Catatan Harian</h2>
+            <input type="text" id="noteInput" placeholder="Tulis catatan...">
+            <button id="addNoteBtn">Tambah</button>
+            <ul id="noteList"></ul>
+        </section>
+    </main>
+
+    <button id="backToTop" style="position:fixed; bottom:20px; right:20px;">↑ Atas</button>
+    
+    <script src="script.js?v=99"></script>
+</body>
+</html>
