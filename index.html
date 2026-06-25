@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Portfolio Aca</title>
-    <link rel="stylesheet" href="style.css?v=100">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -12,9 +12,12 @@
         <button id="darkModeBtn">🌙 Dark Mode</button>
     </header>
 
+    <!-- Fitur Sapaan Baru -->
+    <h2 id="greeting" style="text-align: center; margin-top: 10px;"></h2>
+
     <main>
         <section id="auth">
-            <h2>Login / Register</h2>
+            <h2>🔑 Login / Register</h2>
             <input type="text" id="usernameInput" placeholder="Username">
             <button id="registerBtn">Register</button>
             <button id="loginBtn">Login</button>
@@ -23,7 +26,7 @@
         </section>
 
         <section id="dashboard">
-            <h2>Dashboard Profil</h2>
+            <h2>📊 Dashboard Profil</h2>
             <img id="profilePic" src="https://via.placeholder.com/150" alt="Profil">
             <input type="file" id="profileUpload" accept="image/*">
             <input type="text" id="nameInput" placeholder="Nama baru">
@@ -32,7 +35,7 @@
         </section>
 
         <section id="tools">
-            <h2>Fitur Tambahan</h2>
+            <h2>🛠️ Fitur Tambahan</h2>
             <label>Upload File:</label>
             <input type="file" id="fileUpload">
             <ul id="fileList"></ul>
@@ -42,14 +45,14 @@
         </section>
 
         <section id="notes">
-            <h2>Catatan Harian</h2>
+            <h2>📝 Catatan Harian</h2>
             <input type="text" id="noteInput" placeholder="Tulis catatan...">
             <button id="addNoteBtn">Tambah</button>
             <ul id="noteList"></ul>
         </section>
 
         <section id="contact">
-            <h2>Hubungi Saya</h2>
+            <h2>📩 Hubungi Saya</h2>
             <form id="contactForm">
                 <input type="text" id="contactName" placeholder="Nama Anda" required>
                 <textarea id="contactMessage" placeholder="Pesan Anda"></textarea>
@@ -60,6 +63,6 @@
     </main>
 
     <button id="backToTop" style="position:fixed; bottom:20px; right:20px;">↑ Atas</button>
-    <script src="script.js?v=100"></script>
+    <script src="script.js"></script>
 </body>
 </html>
