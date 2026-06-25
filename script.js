@@ -1,16 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Jam & Dark Mode
     setInterval(() => document.getElementById('clock').textContent = new Date().toLocaleTimeString('id-ID', { hour12: false }), 1000);
     document.getElementById('darkModeBtn').addEventListener('click', () => document.body.classList.toggle('dark-mode'));
 
-    // Sapaan Waktu
     const hour = new Date().getHours();
     const greeting = document.getElementById('greeting');
     if (hour < 12) greeting.textContent = "Selamat Pagi! Selamat datang di Portfolio Aca.";
     else if (hour < 18) greeting.textContent = "Selamat Siang! Mari kita lihat karya Aca.";
     else greeting.textContent = "Selamat Malam! Terima kasih sudah mampir.";
 
-    // Login, Profil, Tools, Contact
     document.getElementById('registerBtn').addEventListener('click', () => { localStorage.setItem('regUser', document.getElementById('usernameInput').value); alert("Akun terdaftar!"); });
     document.getElementById('loginBtn').addEventListener('click', () => {
         if(document.getElementById('usernameInput').value === localStorage.getItem('regUser')) document.getElementById('loginStatus').textContent = "Selamat Datang, " + document.getElementById('usernameInput').value;
