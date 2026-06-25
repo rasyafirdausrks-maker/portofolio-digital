@@ -23,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
         status.textContent = "Belum Login";
         alert("Logout berhasil!");
     });
+    if(localStorage.getItem('loggedInUser')) status.textContent = "Selamat Datang, " + localStorage.getItem('loggedInUser');
 
-    // Profil & Foto
+    // Profil
     const profilePic = document.getElementById('profilePic');
     if(localStorage.getItem('savedName')) document.getElementById('profileName').textContent = localStorage.getItem('savedName');
     if(localStorage.getItem('savedPhoto')) profilePic.src = localStorage.getItem('savedPhoto');
