@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Portfolio Aca</title>
-    <!-- Menambahkan versi ?v=99 agar browser terpaksa memuat ulang -->
-    <link rel="stylesheet" href="style.css?v=99">
+    <link rel="stylesheet" href="style.css?v=100">
 </head>
 <body>
     <header>
@@ -48,10 +47,19 @@
             <button id="addNoteBtn">Tambah</button>
             <ul id="noteList"></ul>
         </section>
+
+        <section id="contact">
+            <h2>Hubungi Saya</h2>
+            <form id="contactForm">
+                <input type="text" id="contactName" placeholder="Nama Anda" required>
+                <textarea id="contactMessage" placeholder="Pesan Anda"></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+            <p id="contactStatus"></p>
+        </section>
     </main>
 
     <button id="backToTop" style="position:fixed; bottom:20px; right:20px;">↑ Atas</button>
-    
-    <script src="script.js?v=99"></script>
+    <script src="script.js?v=100"></script>
 </body>
 </html>
