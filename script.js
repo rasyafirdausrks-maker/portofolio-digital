@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hour = new Date().getHours();
     const greeting = document.getElementById('greeting');
-    if (hour < 12) greeting.textContent = "Selamat Pagi! Selamat datang di Portfolio Aca.";
-    else if (hour < 18) greeting.textContent = "Selamat Siang! Mari kita lihat karya Aca.";
-    else greeting.textContent = "Selamat Malam! Terima kasih sudah mampir.";
+    if (hour < 12) greeting.textContent = "Selamat Pagi! Selamat datang di Website Project Rasya.";
+    else if (hour < 18) greeting.textContent = "Selamat Siang! Mari kita lihat project Rasya.";
+    else greeting.textContent = "Selamat Malam! Terima kasih sudah mampir ke Website Project Rasya.";
 
     document.getElementById('registerBtn').addEventListener('click', () => { localStorage.setItem('regUser', document.getElementById('usernameInput').value); alert("Akun terdaftar!"); });
     document.getElementById('loginBtn').addEventListener('click', () => {
