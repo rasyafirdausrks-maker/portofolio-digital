@@ -17,7 +17,7 @@
     <main>
         <section id="auth">
             <h2>Login / Register</h2>
-            <input type="text" id="usernameInput" placeholder="Masukkan Username">
+            <input type="text" id="usernameInput" placeholder="Username">
             <button id="registerBtn">Register</button>
             <button id="loginBtn">Login</button>
             <button id="logoutBtn">Logout</button>
@@ -26,15 +26,25 @@
 
         <section id="dashboard">
             <h2>Dashboard Profil</h2>
-            <img id="profilePic" src="https://via.placeholder.com/150" alt="Foto Profil" style="width:150px; border-radius:50%; object-fit: cover;">
-            <br>
+            <img id="profilePic" src="https://via.placeholder.com/150" alt="Profil">
             <input type="file" id="profileUpload" accept="image/*">
-            <br><br>
-            <input type="text" id="nameInput" placeholder="Masukkan nama baru">
+            <input type="text" id="nameInput" placeholder="Nama baru">
             <button id="saveNameBtn">Simpan Nama</button>
             <p id="profileName">Pengguna</p>
         </section>
+
+        <section id="tools">
+            <h2>Fitur Tambahan</h2>
+            <label>Upload File:</label>
+            <input type="file" id="fileUpload">
+            <ul id="fileList"></ul>
+            <label>Pilih Tanggal:</label>
+            <input type="date" id="calendarDate">
+            <p id="selectedDate">Belum memilih tanggal</p>
+        </section>
     </main>
+
+    <button id="backToTop">↑ Atas</button>
 
     <script src="script.js"></script>
 </body>
