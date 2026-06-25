@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const profilePic = document.getElementById('profilePic');
     const profileUpload = document.getElementById('profileUpload');
 
-    // Load data
     if(localStorage.getItem('savedName')) profileName.textContent = localStorage.getItem('savedName');
     if(localStorage.getItem('savedPhoto')) profilePic.src = localStorage.getItem('savedPhoto');
 
