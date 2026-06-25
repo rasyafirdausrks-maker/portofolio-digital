@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Jam
+    // 1. JAM
+    const clock = document.getElementById('clock');
     setInterval(() => {
-        document.getElementById('clock').textContent = new Date().toLocaleTimeString('id-ID', { hour12: false });
+        clock.textContent = new Date().toLocaleTimeString('id-ID', { hour12: false });
     }, 1000);
 
-    // 2. Dark Mode
+    // 2. DARK MODE
     document.getElementById('darkModeBtn').addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
     });
 
-    // 3. Login & Register
+    // 3. LOGIN, REGISTER & LOGOUT
     const uInput = document.getElementById('usernameInput');
     const status = document.getElementById('loginStatus');
     
@@ -19,14 +20,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('loginBtn').addEventListener('click', () => {
-        if(uInput.value === localStorage.getItem('registeredUser')) {
+        if(uInput.value && uInput.value === localStorage.getItem('registeredUser')) {
+            localStorage.setItem('loggedInUser', uInput.value);
             status.textContent = "Selamat Datang, " + uInput.value;
         } else {
-            alert("Username tidak terdaftar!");
+            alert("Username salah atau belum terdaftar!");
         }
     });
 
-    // 4. Profil (Nama & Foto)
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem('loggedInUser');
+        status.textContent = "Belum Login";
+        uInput.value = "";
+        alert("Anda telah logout!");
+    });
+
+    // Check login state
+    if(localStorage.getItem('loggedInUser')) {
+        status.textContent = "Selamat Datang, " + localStorage.getItem('loggedInUser');
+    }
+
+    // 4. PROFIL (Nama & Foto)
     const nameInput = document.getElementById('nameInput');
     const profileName = document.getElementById('profileName');
     const profilePic = document.getElementById('profilePic');
